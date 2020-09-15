@@ -5,6 +5,6 @@ services:
     restart: always
     build:
        context: .
-       network: host
+    image: blog_v1.0.0_beta:tag
     ports:
        - '4000:4000'
