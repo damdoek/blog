@@ -1,29 +1,31 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Docker
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
 
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
 jobs:
-  build:
-
+  # Run tests.
+  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
+  test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build:ssr --if-present
-    - run: npm run serve:ssr
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          if [ -f docker-compose.yml ]; then
+            docker-compose build --no-cache
+            docker-compose up -d
+          else
+            echo "no file found"
+          fi
