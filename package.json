@@ -13,6 +13,10 @@
     "build:ssr": "ng build --prod && ng run bleu-ori:server:production",
     "prerender": "ng run bleu-ori:prerender"
   },
+  "engines": {
+    "node": "~12.0.0",
+    "npm": "~6.0.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.0",
