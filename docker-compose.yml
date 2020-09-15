@@ -3,8 +3,5 @@ services:
   prometheus:
     container_name: blog
     restart: always
-    build:
-       context: .
-       network: host
-    ports:
-       - '4000:4000'
+    image: 'blog/image'
+    build: .
