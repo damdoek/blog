@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: |
           if [ -f docker-compose.yml ]; then
-            docker-compose build --no-cache
+            docker build . -t blog/1.0.0beta
             docker-compose up -d
           else
             echo "no file found"
