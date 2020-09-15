@@ -1,0 +1,158 @@
+@import './navbar.scss';
+@import './button.scss';
+@import './carousel.scss';
+@import './text.scss';
+@import './article.scss';
+@import './effects.scss';
+@import './card.scss';
+@import './sidepanel.scss';
+@import './img.scss';
+@import './footer.scss';
+@import './related.scss';
+@import './comment.scss';
+@import './banner.scss';
+@import './variables/color';
+@import './variables/screen';
+@import './variables/fonts';
+@import './mixin/screen';
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+html{
+    background-color: $argent-light;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $argent-light;
+    font-family: "Lora",sans-serif;
+    // font-weight: 500;
+    font-size: $ft-sz-16-lg;
+    color: #242424;
+    overflow-y: overlay;
+    overflow-x: hidden;
+
+    @include for-size(md-dev){
+        font-size:$ft-sz-16-md;
+    }
+    @include for-size(sm-dev){
+        font-size:$ft-sz-16-sm;
+    }
+    @include for-size(xs-dev){
+        font-size:$ft-sz-16-xs;
+    }
+}
+.wrapper{
+    display: table;
+    margin-top:2rem;
+    @include for-size(md-dev){
+        display: block;
+        padding:1rem;
+    }
+    @include for-size(sm-dev){
+        display: block;
+        padding:1rem;
+    }
+    @include for-size(xs-dev){
+        display: block;
+        padding:1rem;
+    }
+}
+.col-main{
+    width:66%;
+    display: table-cell;
+    @include for-size(md-dev){
+        width:100%;
+        
+    }
+    @include for-size(sm-dev){
+        width:100%;
+    }
+    @include for-size(xs-dev){
+        width:100%;
+    }
+}
+.col-side{
+    width:33%;
+    display: table-cell;
+    padding-left:2rem;
+    margin-top:1rem;
+    @include for-size(md-dev){
+        
+        border-top: 1px solid #f0f0f0;
+        display: block;
+        width:100%;
+        padding: 55px 0 0 0;
+    }
+    @include for-size(sm-dev){
+        border-top: 1px solid #f0f0f0;
+        display: block;
+        width:100%;
+        padding: 55px 0 0 0;
+    }
+    @include for-size(xs-dev){
+        border-top: 1px solid #f0f0f0;
+        display: block;
+        width:100%;
+        padding: 55px 0 0 0;
+    }
+}
+.right{
+    float: right;
+    //  clear: both;
+}
+
+.left{
+    float: left;
+    // clear: both;
+   }
+a{
+    text-decoration: none;
+    text-emphasis: none;
+    color: unset;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+.pointer{
+    cursor:pointer
+}
+div.container{
+    
+    width: $body-width-lg;
+    margin: 60px auto  30px auto;
+
+    @include for-size(md-dev){
+        width:$body-width-md
+    }
+    @include for-size(sm-dev){
+        width:$body-width-sm;
+    }
+    @include for-size(xs-dev){
+        width:$body-width-xs
+    }
+    
+}
+
+div.top-header{
+    display: block;
+    @include for-size(xs-dev){
+        display: none;
+    }
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+    width: 3px;
+    background: transparent ;
+  }
+  /* Track */
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+
+  /* Handle on hover */
+.scroll::-webkit-scrollbar-thumb {
+    background: #00000088;
+     border-radius: 5px;
+  }

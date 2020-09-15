@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import './variables/color';
+@import './variables/screen';
+@import './variables/fonts';
+
+h1, h2, h3, h4, h5, h6, .sidebar, li, a, button, .text-mini {
+    font-family: "Montserrat",sans-serif;
+}
+
+p{
+    font-family: "Lora",sans-serif;
+}
+
+h2{
+    color: #fff;
+    font-size: $ft-sz-24-lg;
+    line-height: $lh-1_4em-lg;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    @include for-size(md-dev){
+        font-size: $ft-sz-24-md;
+    }
+    @include for-size(sm-dev){
+        font-size: $ft-sz-24-sm;
+    }
+    @include for-size(xs-dev){
+        font-size: $ft-sz-24-xs;
+    }
+}
+
+.header-csr{
+    letter-spacing: 4px;
+}
+
+.text-mini{
+    // display: inline-block;
+    color: #fff;
+    font-size: $ft-sz-11-lg;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    a{
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    @include for-size(md-dev){
+        font-size: $ft-sz-11-md;
+    }
+    @include for-size(sm-dev){
+        font-size: $ft-sz-11-sm;
+        letter-spacing: $txt-mini-letter-space-sm;
+    }
+    @include for-size(xs-dev){
+        font-size: $ft-sz-11-xs;
+        letter-spacing: $txt-mini-letter-space-sm;
+    }
+}
+.text-muted{
+    color: $gray-light;
+    font-style: italic;
+    font-family: "Lora",sans-serif;
+}
+.text-gold{
+    color: $gold
+}
+
+.text-center{
+    text-align: center;
+}

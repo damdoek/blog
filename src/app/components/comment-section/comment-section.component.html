@@ -1,0 +1,101 @@
+<div class="post-comments" id="comments">
+
+    <div class="post-box">
+        <h4 class="post-box-title"><span>Comments</span></h4>
+    </div>
+    <div class="comments" *ngFor="let comment of comments">
+        <ul>
+            <li class="comment">
+
+                <div class=" comment-content">
+
+                    <div class="author-img">
+                        <img alt=""
+                            src="https://secure.gravatar.com/avatar/f995c34e6a5cfaff38a739f55d46f5ed?s=60&amp;d=mm&amp;r=g">
+                    </div>
+
+                    <div class="comment-text">
+                        <span class="reply">
+                            <a class="comment-reply-link"
+                                href="/redwood/fashion-in-the-country/?replytocom=2#respond">Reply</a> </span>
+                        <h6 class="author">solopine</h6>
+                        <span class="timestamp">{{comment.createdAt | date: 'medium'}}</span>
+                        <p>{{comment.comment}}</p>
+                    </div>
+
+                </div>
+
+
+            </li>
+
+            <ul class="children">
+                <li class="comment" *ngFor="let reply of comment.reply">
+
+                    <div class="comment-content">
+
+                        <div class="author-img">
+                            <img alt=""
+                                src="https://secure.gravatar.com/avatar/f995c34e6a5cfaff38a739f55d46f5ed?s=60&amp;d=mm&amp;r=g"
+                                class="avatar avatar-60 photo lazy-loaded" height="60" width="60">
+                        </div>
+
+                        <div class="comment-text">
+                            <span class="reply">
+                                <a rel="nofollow" class="comment-reply-link"
+                                    href="/redwood/fashion-in-the-country/?replytocom=4#respond"
+                                    data-commentid="4">Reply</a> </span>
+                            <h6 class="author">solopine</h6>
+                            <span class="timestamp">{{reply.createdAt | date}}</span>
+                            <p>{{reply.comment}}
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </li>
+
+                <!-- #comment-## -->
+            </ul><!-- .children -->
+            <!-- #comment-## -->
+
+            <!-- #comment-## -->
+        </ul>
+    </div>
+    <div id="comments_pagination"></div>
+    <div id="respond" class="comment-respond">
+        <h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow"
+                    id="cancel-comment-reply-link" href="/redwood/fashion-in-the-country/#respond"
+                    style="display:none;">Cancel Reply</a></small></h3>
+        <form action="https://solopine.com/redwood/wp-comments-post.php" method="post" id="commentform"
+            class="comment-form">
+            <p class="comment-form-comment">
+                <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+            </p>
+            <p class="comment-form-author">
+                <label for="author">Name <span class="required">*</span></label>
+                <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required">
+            </p>
+            <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input
+                    id="email" name="email" type="text" value="" size="30" maxlength="100"
+                    aria-describedby="email-notes" required="required"></p>
+            <p class="comment-form-url">
+                <label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"
+                    maxlength="200">
+            </p>
+            <p class="comment-form-cookies-consent">
+                <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
+                <label for="wp-comment-cookies-consent">Save my name, email, and website in
+                    this browser for the next time
+                    I comment.</label>
+            </p>
+            <p class="form-submit">
+                <button name="submit" type="submit" id="submit" class="btn btn-fit btn-black submit">Leave
+                    comment</button>
+            </p>
+
+        </form>
+    </div><!-- #respond -->
+
+
+</div>

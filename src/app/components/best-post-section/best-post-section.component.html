@@ -1,0 +1,59 @@
+<div class="article" *ngIf=" article else loading">
+    <div class="article-header">
+        <span class="text-mini text-gold pointer"> <a href="/#">{{article.category}}</a> </span>
+        <h2 class="article-title pointer" id="best_art_title"><a href='/#'>{{article.title}}</a></h2>
+        <span class="divider-title"></span>
+        <span *ngIf="mode != 'about'" class="text-muted">Posted on {{article.uptdatedAt | date}}</span>
+    </div>
+    <div class="article-img" [defaultImage]="" [lazyLoad]="article.img">
+
+    </div>
+    <div class="article-body">
+
+        <div class="article-content">
+            <p class="prev" [innerHTML]=" article.prev"></p>
+            <div *ngIf="mode == 'full' || mode == 'about'">
+                <div *ngFor="let item of article.content">
+                    <app-post-content-elet [content]="item">
+
+                    </app-post-content-elet>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="more" *ngIf="mode == 'prev'">
+            <a [routerLink]="['/post', article._id]" class="read-more">Continue reading</a>
+            <span class="divider-more"></span>
+        </div>
+        <div class="article-share" *ngIf="mode != 'about'">
+            <div class="article-share-box share-comments">
+                <a><span>{{commentsCount}}</span> Comments</a> </div>
+            <div class="article-share-box share-buttons">
+                <a class="social">
+                    <button class="btn btn-round btn-spin btn-social"><i class="far fa-bookmark"></i></button>
+                    <button class="btn btn-round btn-spin btn-social"><i class="far fa-star"></i></button>
+                    <!-- <button class="btn btn-round btn-spin btn-social"><i class="fab fa-twitter"></i></button> -->
+                    <!-- <button class="btn btn-round btn-spin btn-social"><i class="fab fa-youtube"></i></button> -->
+                    <button class="btn btn-round btn-spin btn-social"><i class="fas fa-share-alt"></i></button>
+                </a>
+            </div>
+            <div class="article-share-box share-author">
+                <span>By </span>
+                <a href="/#" title="Posts by Author" rel="author">{{article.author?.name}}</a>
+            </div>
+
+        </div>
+        <div class="related" *ngIf="mode == 'full'">
+            <app-related-section [related]="relatedArticle"></app-related-section>
+        </div>
+
+        <div class="article-comment" *ngIf="mode == 'full'">
+
+            <app-comment-section [articleId]="article._id"></app-comment-section>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <div> Loading ... </div>
+</ng-template>

@@ -1,0 +1,156 @@
+@import './variables/color';
+@import './variables/screen';
+@import './variables/fonts';
+
+ul{
+    padding:0
+}
+.card-grid{
+    margin: 0;
+    li{
+       width: calc(50% - 14px);
+        margin-right:26px ;
+        display: inline-block;
+        vertical-align: top;
+        &:nth-of-type(2n+2){
+            margin-right:0;
+        }
+        @include for-size(sm-dev){
+            padding-top: 45px;
+            width: calc(100%);
+            margin: 0;
+            border-bottom: 1px solid #f0f0f0;
+            &:last-child{
+                margin-top: 0;
+                border-bottom: none;
+            }
+        }
+        @include for-size(xs-dev) {
+            padding-top: 45px;
+            width: calc(100%);
+            margin: 0;
+            border-bottom: 1px solid #f0f0f0;
+            &:last-child{
+                margin-top: 0;
+                border-bottom: none;
+            }
+        }
+    }
+}
+.card-list{
+    margin: 0;
+    li{
+       width: 100%;
+        margin-right:0px ;
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        margin-bottom: 45px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        &:last-child{
+            border-bottom: none;
+        }
+        .card-img{
+            max-width: $height-260-lg;
+            margin-right: 20px;
+            float: left;
+            @include for-size(md-dev){
+                max-width: $height-260-md;
+            }
+            @include for-size(sm-dev){
+                max-width: $height-260-md;
+            }
+            @include for-size(xs-dev){
+                max-width: $height-260-md;
+            }
+        }
+        .card-content{
+            max-height: $height-280-lg;;
+            overflow: hidden;
+            text-align: left;
+            @include for-size(md-dev){
+                max-height: $height-280-md;
+            }
+            @include for-size(sm-dev){
+                max-height: $height-280-md;
+            }
+            @include for-size(xs-dev){
+                max-height: $height-280-sm;
+            }
+            .card-header{
+                text-align: left;
+                margin-top: 0;
+                margin-bottom: 0.5em;
+            }
+            .card-body{
+                max-height: $height-8_9em-lg;
+                overflow: hidden;
+                
+                padding: 0;
+                padding-bottom: 10px;
+                @include for-size(md-dev){
+                    max-height: $height-8_9em-md;
+                    padding-bottom: 7px;
+                }
+                @include for-size(sm-dev){
+                    max-height: $height-8_9em-md;
+                    padding-bottom: 7px;
+
+                }
+                @include for-size(xs-dev){
+                    max-height: $height-8_9em-sm;
+                    padding-bottom: 4px;
+
+                }
+            }
+            .card-footer{
+                padding: 5px 0 0 0;
+            }
+        }
+        
+    }
+}
+.card{
+    display: block;
+    margin-bottom: 45px;
+}
+.card-img{
+    width: 100%;
+    height: $card-img-h-lg;
+    // background-image: url('../img/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 1rem;
+    @include for-size(md-dev){
+        height: $card-img-h-md;
+    }
+    @include for-size(sm-dev){
+        height: $card-img-h-md;
+    }
+    @include for-size(xs-dev){
+        height: $card-img-h-md;
+    }
+}
+
+.card-header{
+    text-align: center;
+    margin: 1.5rem 0;
+    h2{
+        font-size: $ft-sz-18-lg;
+        @include for-size(md-dev){
+            font-size: $ft-sz-18-md;
+        }
+        @include for-size(sm-dev){
+            font-size: $ft-sz-18-md;
+        }
+        @include for-size(xs-dev){
+            font-size: $ft-sz-18-sm;
+        }
+    }
+}
+
+.card-body, .card-footer{
+    padding: 0 5px;
+}

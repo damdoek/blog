@@ -1,0 +1,12 @@
+<div class="banner">
+    <div class="banner-box">
+        <div class="banner-item cover-img" *ngFor="let item of adverts" [lazyLoad]="item.img">
+
+            <a [routerLink]="[item.link]">
+                <div class="overlay-img-reverse"></div>
+            </a>
+
+        </div>
+
+    </div>
+</div>

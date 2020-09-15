@@ -1,0 +1,165 @@
+$body-width-lg: 1080px;
+
+$ft-sec-size-lg:16px;
+$card-img-h-lg: 275px;
+$art-img-h-lg: 500px;
+$pic-img-h-lg: 87px;
+$crs-h-lg: 530px;
+$topart-img-h-lg: 130px;
+$banner-img-h-lg: 200px;
+$about-img-lg: 150px;
+$bn-spot-h-lg:250px;
+$height-65-lg: 65px;
+$height-420-lg:420px;
+$height-200-lg: 200px;
+$height-250-lg:250px;
+$height-260-lg:260px;
+$height-280-lg:280px;
+$height-350-lg: 350px;
+$height-8_9em-lg: 8.9em;
+
+$letter-space-title-lg: 3px;
+$letter-space-header-csr-lg: 4px;
+
+$txt-mini-letter-space-lg: 2px;
+$line-height-title-lg: 1.4em;
+//.article-title
+    
+    $letter-space-art-title-lg: 3px;
+    $ft-weight-art-title-lg: 500;
+    $line-h-art-title-lg: 1.4em;
+//div.article
+        $padding-art-lg: 2rem 0;
+        $margin-art-lg: 1rem 0;
+//div.article-list
+        $margin-bottom-lg:60px;
+    
+    
+//.divider-title
+        $max-width-lg: 48px;
+        $margin-lg: 0 auto 26px;
+    
+//div.article-img 
+        $margin-lg: 2rem 0;
+        $width-lg: 100%;
+        $height-lg: 500px;
+    
+//div.article-body
+    //h2
+            $font-weight-lg: 700;
+            $margin-bottom-lg: 14px;
+    //p
+            $line-height-lg: 27px;
+    //blockquote
+            $padding-lg: 0 18px;
+        //p
+                $font-size-lg: 18px;
+                $line-height-lg: 28px;
+    
+//.read-more
+        $margin-top-lg: 30px;
+        $letter-spacing-lg: 3px;
+        $font-size-lg: 12px;
+    
+//.divider-more
+        $border-top-lg: 2px solid;
+        $max-width-lg: 48px;
+        $margin-lg: 15px auto;
+    
+//.article-share
+        $margin-top-lg: 38px;
+    
+//.article-share-box
+            $height-lg: 54px;
+            $line-height-lg: 54px;
+//&-lg:first-child-lg:nth-last-child(3), &-lg:first-child-lg:nth-last-child(3)~div 
+                $width-lg: 33%;
+        //&-lg:first-child 
+    
+    
+//.share-author
+    //span
+            $margin-right-lg: 2px;
+    
+//.meta-search
+        $width-lg: 100%;
+        $padding-lg: 15px 0;
+        $margin-bottom-lg: 30px;;
+    
+//.divider-title-list
+        $max-width-lg: 40px;
+        $margin-lg: 0 0 0.5em;
+
+        $body-width-md: 620px;
+        
+        $card-img-h-md: $card-img-h-lg*620/1080;
+        $art-img-h-md: $art-img-h-lg*620/1080;
+        $pic-img-h-md: $pic-img-h-lg*620/1080;
+        $crs-h-md: $crs-h-lg*620/1080;
+        $topart-img-h-md: $topart-img-h-lg*620/1080;
+        $banner-img-h-md: $banner-img-h-lg*620/1080;
+        $about-img-md: $about-img-lg*620/1080;
+        $bn-spot-h-md: $bn-spot-h-lg*620/1080;
+        $height-65-md: $height-65-lg*620/1080;
+        $height-420-md: $height-420-lg*620/1080;
+        $height-200-md: $height-200-lg*620/1080;
+        $height-250-md: $height-250-lg*620/1080;
+        $height-260-md: $height-260-lg*620/1080;
+        $height-280-md: $height-280-lg*620/1080;
+        $height-350-md: $height-350-lg*620/1080;
+        $height-8_9em-md: $height-8_9em-lg*620/1080;
+
+        $letter-space-title-md: 3px;
+        $letter-space-header-csr-md: 3px;
+        
+        $txt-mini-letter-space-md: 2px;
+        $line-height-title-md: 1.2em;
+
+
+
+
+
+
+
+        $body-width-sm: 100%;
+        
+        $card-img-h-sm: $card-img-h-lg*400/1080;
+        $art-img-h-sm: $art-img-h-lg*400/1080;
+        $pic-img-h-sm: $pic-img-h-lg*400/1080;
+        $crs-h-sm: $crs-h-lg*400/1080;
+        $topart-img-h-sm: $topart-img-h-lg*400/1080;
+        $banner-img-h-sm: $banner-img-h-lg*400/1080;
+        $about-img-sm: $about-img-lg*400/1080;
+        $bn-spot-h-sm: $bn-spot-h-lg*400/1080;
+        $height-420-sm: $height-420-lg*400/1080;
+        $height-200-sm: $height-200-lg*400/1080;
+        $height-250-sm: $height-250-lg*400/1080;
+        $height-260-sm: $height-260-lg*400/1080;
+        $height-280-sm: $height-280-lg*400/1080;
+        $height-350-sm: $height-350-lg*400/1080;
+        $height-8_9em-sm: $height-8_9em-lg*400/1080;
+
+        $card-img-h-xs: $card-img-h-lg*300/1080;
+        $art-img-h-xs: $art-img-h-lg*300/1080;
+        $pic-img-h-xs: $pic-img-h-lg*300/1080;
+        $crs-h-xs: $crs-h-lg*300/1080;
+        $topart-img-h-xs: $topart-img-h-lg*300/1080;
+        $banner-img-h-xs: $banner-img-h-lg*300/1080;
+        $about-img-xs: $about-img-lg*300/1080;
+        $bn-spot-h-xs: $bn-spot-h-lg*300/1080;
+        $height-420-xs: $height-420-lg*300/1080;
+        $height-200-xs: $height-200-lg*300/1080;
+        $height-250-xs: $height-250-lg*300/1080;
+        $height-260-xs: $height-260-lg*300/1080;
+        $height-280-xs: $height-280-lg*300/1080;
+        $height-350-xs: $height-350-lg*300/1080;
+        $height-8_9em-xs: $height-8_9em-lg*300/1080;
+    
+        $letter-space-title-sm: 2px;
+        $letter-space-header-csr-sm: 2px;
+        
+        $txt-mini-letter-space-sm: 1px;
+        $line-height-title-sm: 1.1em;
+
+        $body-width-xs: 100%;
+        

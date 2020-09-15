@@ -1,0 +1,240 @@
+@import './variables/color';
+@import './variables/screen';
+@import './variables/fonts';
+.side-area{
+    padding: 0 1rem;
+    margin-bottom: 60px;
+    @include for-size(md-dev){
+        margin: auto;
+        max-width:300px;
+        padding: 0
+    }
+    @include for-size(sm-dev){
+        margin: auto;
+        max-width:300px;
+        padding: 0
+    }
+}
+.side-panel{
+    margin-top: 25px
+}
+.side-panel > h2.widget-header{
+    background: $mild-black;
+    text-align: center;
+    color: #fff;
+    padding: 13px 0;
+    font-size: $ft-sz-13-lg;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    margin-bottom: 25px;
+    @include for-size(md-dev){
+        font-size: $ft-sz-13-md;
+    }
+    @include for-size(sm-dev){
+        font-size: $ft-sz-13-sm;
+    }
+    @include for-size(xs-dev){
+        font-size: $ft-sz-13-xs;
+    }
+}
+.side-panel > h2.widget-header:after{
+        content: "";
+        display: block;
+        position: absolute;
+        border-top: 5px solid;
+        border-top-color: $mild-black;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -5px;
+    }
+.side-panel-widget{
+        margin:0;
+}
+
+.side-panel-body{
+    text-align: center;
+}
+.side-panel-body.about{
+    
+    .about-img{
+        width: $about-img-lg;
+        height: $about-img-lg;
+        border-radius: 50%;
+        margin: 1em auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        @include for-size(md-dev){
+            height:$about-img-md;
+            width: $about-img-md
+        }
+        @include for-size(sm-dev){
+            height:$about-img-md;
+            width: $about-img-md
+        }
+        @include for-size(xs-dev){
+            height:calc(0.85 * #{$about-img-md});
+            width: calc(0.85 * #{$about-img-md})
+        }
+    }
+    h2.widget-title{
+        color: $mild-black;
+        font-size: $ft-sz-14-lg;
+        font-weight: 700;
+        @include for-size(md-dev){
+            font-size: $ft-sz-14-md;
+        }
+        @include for-size(sm-dev){
+            font-size: $ft-sz-14-md;
+        }
+        @include for-size(xs-dev){
+            font-size: $ft-sz-14-sm;
+        }
+    }
+}
+
+.side-panel-body.follow{
+    a.social{
+        .btn-spin{
+            color: $mild-black;
+            border-color: transparent;
+            height: 19px;
+            width: 19px;
+            @include for-size(md-dev){
+                height: 16.5px;
+                width: 16.5px;
+            }
+            @include for-size(sm-dev){
+                height: 15.5px;
+                width: 15.5px;
+            }
+            @include for-size(xs-dev){
+                height: 15px;
+                width: 15px;
+            }
+            i{
+                padding-left: 1px;
+            }
+            &:hover{
+            color: $mild-black;
+            border-color: $gold;
+            color: $gold;
+            background-color: transparent;
+            }
+        }
+        
+    }
+}
+
+.side-panel-body.picture{
+    width: 100%;
+    line-height: 0;
+    box-sizing: border-box;
+    .picture-container{
+        
+        .picture-wrap{
+            float: left;
+            width: 33%;
+            a.inst-photo{
+                div{
+                    height: $pic-img-h-lg;
+                    margin: 0px 5px 5px 0px;
+                    // @include for-size(md-dev){
+                    //     height:$pic-img-h-md
+                    // }
+                    // @include for-size(sm-dev){
+                    //     height:$pic-img-h-md
+                    // }
+                    // @include for-size(xs-dev){
+                    //     height:$pic-img-h-md
+                    // }
+                }
+            }
+        }
+    }
+
+}
+
+.side-panel-body.top{
+    width: 100%;
+    .top-container{
+        
+        .top-wrap{
+            width: 100%;
+            margin-bottom: 35px;
+                .top-img{
+                    
+                    height: $topart-img-h-lg;
+                    // @include for-size(md-dev){
+                    //     height:$topart-img-h-md
+                    // }
+                    // @include for-size(xs-dev){
+                    //     height:$topart-img-h-md
+                    // }
+                    // margin: 5px;
+                }
+                .top-meta{
+                    padding-top: 20px;
+                    h2.text-mini{
+                        color: $mild-black;
+                        font-weight: 600;
+                        font-size: $ft-sz-14-lg;
+                        @include for-size(md-dev){
+                           font-size: $ft-sz-14-md;
+                        }
+                        @include for-size(sm-dev){
+                           font-size: $ft-sz-14-md;
+                        }
+                        @include for-size(xs-dev){
+                            font-size: $ft-sz-14-sm;
+                         }
+                    }
+                    span.divider-title{
+                        margin-top: 15px;
+                    }
+                }
+        }
+    }
+
+}
+
+.side-panel-body.category{
+    width: 100%;
+    .category-container{
+        
+        .category-wrap{
+            width: 100%;
+            padding: 0.5em;
+            text-align: left;
+            border-bottom: 1px dashed transparentize($color: $mild-black, $amount: 0.66);
+            text-transform: capitalize;
+                a.cat{
+                    font-weight: 500;
+                    font-family: "Lora",sans-serif !important;
+                    font-style: italic;
+                    // font-size: $ft-sz-16-lg;
+                    letter-spacing: 1px;
+                   
+                }
+        }
+    }
+
+}
+
+.banner-spot{
+    img{
+        width: 100%;
+        max-height: $bn-spot-h-lg;
+        @include for-size(md-dev){
+            max-height: $bn-spot-h-md;
+        }
+        @include for-size(sm-dev){
+            max-height: $bn-spot-h-md;
+        }
+    }
+}

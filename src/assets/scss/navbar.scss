@@ -1,0 +1,183 @@
+@import './variables/color';
+@import './variables/screen';
+@import './variables/fonts';
+@import './variables/_navbar';
+@import './variables/_sidebar';
+@import './mixin/screen';
+
+.nav-bar{
+    position: fixed;
+    top: 0;
+    left:0;
+    height: $nav-bar-height;
+    width: 100vw;
+    padding: $nav-bar-padding;
+    z-index: 100;
+}
+
+.bg-black{
+    background-color: $black;
+}
+
+.nav-content{
+    width: $body-width-lg;
+    margin: 0 auto;
+    padding: $nav-bar-cnt-padding;
+    @include for-size(md-dev){
+            width:$body-width-md;
+        
+    }
+    @include for-size(sm-dev){
+            width:$body-width-sm;
+    }
+    @include for-size(xs-dev){
+            width:$body-width-xs;
+    }
+}
+
+.sidebar{
+    position: absolute;
+    right: 0;
+    top: $side-bar-top;
+    width:calc(100% - #{$body-width-lg});
+    min-width: $side-bar-width;
+    max-width: 50vw;
+    height: $side-bar-height;
+    background-color: $black;
+    transition: transform .3s ease-in;
+    text-align: center;
+    z-index: 100;
+    @include for-size(md-dev){
+        width:calc(100% - #{$body-width-md});
+        min-width: 280px;
+    }
+    @include for-size(sm-dev){
+        width: auto;
+        min-width: 250px;
+    }
+    @include for-size(xs-dev){
+        width: auto;
+        max-width: 60vw;
+        min-width: 200px;
+    }
+}
+.overlay{
+    position: absolute;
+    opacity: 0.15;
+    left: 0;
+    top: 60px;
+    background-color: $black-color;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 99;
+    transition: 0.5s linear;
+}
+.fade {
+    transition: transform .3s ease-out;
+    transform: translateX(+150%);
+   
+}
+.nav-side{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.nav-item{
+    display: flex;
+}
+.social > a {
+    display: inline-block;
+}
+.item, .nav-item > .social{
+    text-decoration: none;
+    font-size: $ft-sz-1_1em-lg;
+    padding: $menu-item-padding;
+    color: $whitesmoke;
+    flex: 1;
+    text-transform: uppercase;
+    @include for-size(md-dev){
+        font-size: 0.8rem;
+    }
+    @include for-size(sm-dev){
+        font-size: 0.8rem;
+    }
+    @include for-size(xs-dev){
+        font-size: 0.7rem;
+    }
+}
+
+.item-title{
+    text-decoration: none;
+    font-size: $ft-sz-2em-lg;
+    padding: $menu-title-padding;
+    color: $whitesmoke;
+    flex: 1;
+    text-transform: uppercase;
+    @include for-size(md-dev){
+        font-size:1.3rem;
+    }
+    @include for-size(sm-dev){
+        font-size:1.3rem;
+    }
+    @include for-size(xs-dev){
+        font-size:1.1rem;
+    }
+}
+
+.social > i{
+   padding: 5px;
+   width: 20px;
+   height: 20px;
+   border: 1px solid $black;
+    border-radius: 50%;
+}
+
+
+.social > i:hover{
+    border-color: $whitesmoke;
+    // background-color: $whitesmoke;
+    transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+    color: $whitesmoke;
+}
+
+
+.search{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+
+.search-input{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    transition: .3s;
+   input{
+    margin-top: 1px;
+    padding: 5px 15px;
+    width: 1080px;
+    height: 40px;
+    background-color: #fefefe;
+    box-shadow: 0 5px 4px -4px rgba(190,190,190,.1);
+    border: 1px solid #eee;
+    &:focus{
+        box-shadow: 1px 8px 6px -6px rgba(88, 140, 218, 0.295);
+
+    }
+    @include for-size(md-dev){
+        width: 620px;
+    }
+    @include for-size(sm-dev){
+        width: calc(100vw - 1px);
+        box-sizing: border-box;
+    }
+    @include for-size(xs-dev){
+        width: calc(100vw - 1px);
+        box-sizing: border-box;
+    }
+   }
+}

@@ -1,0 +1,17 @@
+<div class="post-related">
+    <div class="post-box">
+        <h4 class="post-box-title"><span>You Might Also Like</span></h4>
+    </div>
+    <div class="post-box-item">
+        <div class="item-related" *ngFor="let item of related">
+
+            <a>
+                <img [lazyLoad]="item.img">
+            </a>
+            <h3><a>{{item.title}}</a></h3>
+            <span class="timestamp">{{item.date | date}}</span>
+
+        </div>
+
+    </div>
+</div>

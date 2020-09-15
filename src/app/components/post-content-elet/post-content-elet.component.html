@@ -1,0 +1,109 @@
+<div class="article-elet" [ngClass]="type" *ngIf="type =='text'">
+    <p [innerHTML]="content[type]"></p>
+</div>
+
+<div class="article-elet" [ngClass]="type" *ngIf="type =='titleH2'">
+    <h2 [innerHTML]="content[type]"></h2>
+</div>
+
+<div class="article-elet" [ngClass]="type" *ngIf="type =='titleH4'">
+    <h4 [innerHTML]="content[type]"></h4>
+</div>
+
+<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="content[type]" *ngIf="type =='imgFull'">
+</div>
+
+<ul class="article-elet" [ngClass]="type" *ngIf="type == 'imgFullList3Col'">
+    <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
+        <figure>
+            <img [lazyLoad]="img" alt="art-elt-img">
+            <div class="overlay-img-abs" *ngIf="option && option.overlay">
+                <div class="btn-over-img">
+                    <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">
+                        <i class="material-icons">
+                            zoom_in
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </figure>
+    </li>
+
+</ul>
+
+<ul class="article-elet" [ngClass]="type" *ngIf="type =='imgFullList2Col'">
+    <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
+        <figure>
+            <img [lazyLoad]="img" alt="art-elt-img">
+            <div class="overlay-img-abs" *ngIf="option && option.overlay">
+                <div class="btn-over-img">
+                    <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">
+                        <i class="material-icons">
+                            zoom_in
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </figure>
+    </li>
+
+</ul>
+
+<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="content[type]" *ngIf="type =='imgViewport'">
+</div>
+
+<div class="article-elet" [ngClass]="type" *ngIf="type =='imgViewportList'">
+    <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
+        <figure>
+            <img [lazyLoad]="img" alt="art-elt-img">
+            <div class="overlay-img-abs" *ngIf="option && option.overlay">
+                <div class="btn-over-img">
+                    <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">
+                        <i class="material-icons">
+                            zoom_in
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </figure>
+    </li>
+</div>
+
+<div class="article-elet" [ngClass]="type" *ngIf="type =='img-fit-center'">
+    <img [lazyLoad]="content[type]" alt="art-elt-img">
+</div>
+
+<div class="overlay-display" [style.display]="show ? '':'none'" id="img_disp"
+    *ngIf="( type =='imgViewportList' || type =='imgFullList2Col' || type =='imgFullList3Col' ) && option && option.overlay">
+    <div class="overlay-bg" (click)="quitZoomImg()">
+        <button class="btn btn-icon btn-no-border right"><i class="material-icons">close</i></button>
+    </div>
+    <div class="overlay-show-img">
+        <ul class="img-display">
+            <li class="img-display-item">
+                <figure>
+                    <div class="img-box">
+                        <img [src]="content[type][currentIndex]" alt="art-elt-img">
+                    </div>
+
+                    <div [ngStyle]="{'clear':'both'}"></div>
+                </figure>
+
+
+                <div [ngStyle]="{'clear':'both'}"></div>
+            </li>
+        </ul>
+        <div class="img-comment">
+            <p>{{content[type][currentIndex]}}</p>
+        </div>
+        <div class="img-display-control">
+            <div class="carousel-nav-prev">
+                <button class="crs-nav" (click)="move(-1)"><i class="fa fa-angle-left"></i></button>
+            </div>
+            <div class="carousel-nav-next">
+                <button class="crs-nav" (click)="move(1)"><i class="fa fa-angle-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>

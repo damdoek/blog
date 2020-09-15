@@ -1,0 +1,7 @@
+.ng-lazyloading{
+    opacity: 0;
+}
+.ng-lazyloaded{
+    opacity:1 !important;
+    transition:  0.4s ;
+}

@@ -1,0 +1,4 @@
+<div class="side-area" *ngIf="sidePanelArea else loading">
+    <app-side-panel *ngFor="let panel of sidePanelArea.items" [panel]="panel"></app-side-panel>
+</div>
+<ng-template #loading>Loading ...</ng-template>

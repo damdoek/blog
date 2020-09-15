@@ -1,0 +1,28 @@
+<div *ngIf="count">
+    <div class="right">
+        <button class="btn btn-menu btn-no-border btn-black " (click)="setListView()"><i
+                class="fas fa-th-list"></i></button>
+        <button class="btn btn-menu btn-no-border btn-black " (click)="setGridView()"><i class="fas fa-th"></i></button>
+    </div>
+    <div class="meta-search" *ngIf="mode=='search'">
+        <span class="text-muted">{{count}} results founds</span>
+
+    </div>
+
+    <div style="clear: both;"></div>
+</div>
+<div *ngIf="count">
+    <app-post-list-section [data]="articles" *ngIf="!postView.grid"></app-post-list-section>
+    <app-post-grid-section [data]="articles" *ngIf="postView.grid"></app-post-grid-section>
+    <div class="more">
+
+        <a (click)="more()" class="read-more">
+            <i class="material-icons" [style.fontSize]="'2rem'">
+                more_horiz</i></a>
+        <span class="divider-more"></span>
+    </div>
+</div>
+<div *ngIf="count == 0">
+    <h2 class="text-muted">Oups No result found !</h2>
+    <img src="assets/img/logo.png" width="100%">
+</div>

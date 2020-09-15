@@ -1,0 +1,28 @@
+<div class="carousel-container" *ngIf="carousel.items else loading">
+    <div class="carousel" *ngFor="let item of carousel.items , let i = index;"
+        [style.backgroundImage]="'url('+item.img+')'" [ngClass]="i == carousel.currentItemIdx?'visible':'hidden'">
+    </div>
+    <div class=" fade-overlay-crs">
+        <div class="carousel-item">
+            <span class="text-mini"> <a href=""> {{carousel.items[carousel.currentItemIdx].category}}</a> </span>
+            <h2 class="header-crs"> <a href="">{{carousel.items[carousel.currentItemIdx].title}}</a> </h2>
+            <span class="divider-crs"></span>
+            <button class="btn btn-primar btn-ft-11"
+                (click)="navigateTo(carousel.items[carousel.currentItemIdx].link)">Read
+                more</button>
+
+        </div>
+        <div class="carousel-nav-prev ">
+            <button (click)="move(-1)" id="btn_crs_prev" class="crs-nav">
+                <i class="fa fa-angle-left"></i>
+            </button>
+        </div>
+        <div class="carousel-nav-next">
+            <button (click)="move(1)" id="btn_crs_next" class="crs-nav">
+                <i class="fa fa-angle-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>Loading ...</ng-template>

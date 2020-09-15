@@ -1,0 +1,41 @@
+<div class="article-list" *ngIf="data else loading">
+    <ul class="card-grid">
+        <li class="card-container" *ngFor="let article of data">
+            <div class="card">
+                <div class="card-img lazy-load" [defaultImage]="" [lazyLoad]="article.img">
+                    <div class="overlay-img">
+                        <div class="btn-over-img">
+                            <button class="btn btn-spin btn-social"><i class="material-icons">
+                                    bookmarks
+                                </i></button>
+                            <button class="btn btn-spin btn-social"><i class="material-icons">star_outline</i></button>
+                            <button class="btn btn-spin btn-social"><i class="material-icons">share</i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class=" card-header">
+
+                    <span class="text-mini text-gold pointer"> <a href="/#">{{article.category}}</a> </span>
+                    <h2 class="article-title pointer" id="best_art_title"><a
+                            [routerLink]="['/post', article._id]">{{article.title}}</a></h2>
+                    <span class="divider-title"></span>
+
+                </div>
+                <div class="card-body">
+                    <div class="article-body">
+
+                        <div class="article-content" [innerHTML]="article.prev"></div>
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted">{{article.date | date}}</span>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+</div>
+
+<ng-template #loading>Loading ...</ng-template>

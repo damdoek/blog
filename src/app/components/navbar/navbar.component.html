@@ -1,0 +1,46 @@
+<nav class="nav-bar bg-black">
+    <div class="nav-content" *ngIf="navBar">
+        <div id="logo" class="left">
+            <img alt="logo" id="_logo" [lazyLoad]="navBar.logo" height="40">
+        </div>
+        <div class="search">
+            <div class="search-btn">
+                <button class="btn btn-no-border" (click)="navBar.chgtSearchInputStat()"><i
+                        class="fa fa-search"></i></button>
+            </div>
+            <div class="search-input" *ngIf="navBar.searchInputStat">
+                <form [formGroup]="searchForm" (submit)="goToSearch()">
+                    <input type="text" _id="search" placeholder="Are you looking for something ..."
+                        formControlName="search" name="search">
+                </form>
+
+            </div>
+        </div>
+        <div id="menu" class="" *ngIf="navBar.sidebar">
+            <button type="button" (click)="navBar.menuBtn.chgState()" id="menu_toggle_button"
+                class="btn btn-no-border btn-menu right"><i
+                    class="material-icons">{{navBar.menuBtn.open ? navBar.menuBtn.icon.close:navBar.menuBtn.icon.open}}</i>
+            </button>
+            <div class="overlay" *ngIf="navBar.menuBtn.open" (click)="navBar.menuBtn.chgState()"></div>
+            <div [ngClass]="navBar.menuBtn.open ? '':'fade'" class="sidebar" id="sidebar">
+
+                <ul class="nav-side">
+                    <li class="nav-item">
+                        <a class="item-title">{{navBar.sidebar.title}}</a>
+                    </li>
+                    <li *ngFor="let item of navBar.sidebar.menuItems" class="nav-item">
+                        <a [routerLink]="[item.link]" class="item btn btn-no-border btn-animated">{{item.text}}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="social">
+                            <button *ngFor="let item of navBar.sidebar.social"
+                                class="btn btn-round btn-spin btn-social"><i [ngClass]="item.icon"></i></button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>

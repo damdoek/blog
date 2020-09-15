@@ -1,0 +1,199 @@
+@import './variables/color';
+@import './variables/fonts';
+
+div.article{
+    padding: 2rem 0;
+    margin: 1rem 0;
+    // color: #242424
+    @include for-size(sm-dev){
+        padding: 2rem 1rem;
+    }
+    @include for-size(xs-dev){
+        padding: 2rem 1rem;
+    }
+}
+div.article-list{
+    margin-bottom:60px
+}
+div.article-header{
+    text-align: center;
+}
+
+.article-title{
+    font-size: $ft-sz-24-lg;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $black;
+    font-weight: 500;
+    line-height: $lh-1_4em-lg;
+    @include for-size(md-dev){
+        font-size: $ft-sz-24-md;
+        // line-height: $lh-1_4em-md;
+    }
+    @include for-size(sm-dev){
+        font-size: $ft-sz-24-sm;
+        // line-height: $lh-1_4em-md;
+    }
+    @include for-size(xs-dev){
+        font-size: $ft-sz-24-xs;
+        // line-height: $lh-1_4em-md;
+    }
+}
+.article-title:hover{
+    opacity: 0.6;
+}
+
+.divider-title{
+    border-top: 2px solid;
+    display: block;
+    max-width: 48px;
+    margin: 0 auto 26px;
+    color:$black-light;
+    transition: .3s;
+}
+
+div.article-img {
+    margin: 2rem 0;
+    width: 100%;
+    height:  $card-img-h-lg;;
+    // background-image: url("../img/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include for-size(md-dev){
+        height: $art-img-h-md;
+    }
+    @include for-size(sm-dev){
+        height: $art-img-h-sm;
+    }
+    @include for-size(xs-dev){
+        height: $art-img-h-sm;
+    }
+}
+
+div.article-body{
+    h2{
+        color: $black;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+    p{
+        line-height: $lh-27-lg;
+        text-align: justify;
+        @include for-size(md-dev){
+            line-height: $lh-27-md
+        }
+        @include for-size(sm-dev){
+            line-height: $lh-27-md; 
+            // margin-top: 5px;
+        }
+        @include for-size(xs-dev){
+            line-height: $lh-27-sm
+        }
+    }
+    blockquote{
+        border-left: 3px solid;
+        border-color: $gray-light-d;
+        padding: 0 18px;
+        p{
+            font-size: $ft-sz-18-lg;
+            line-height: $lh-28-lg;
+            font-style: italic;
+            color: $gray-light-8;
+        }
+    }
+}
+
+.read-more{
+    text-align: center;
+    display: block;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: $ft-sz-12-lg;
+    color: $black;
+    transition: .3s;
+}
+
+.read-more:hover {
+    color: $gold;
+}
+
+.divider-more{
+    border-top: 2px solid;
+    display: block;
+    max-width: 48px;
+    margin: 15px auto;
+    color:$gold;
+    transition: .3s;
+}
+
+.article-share{
+    border-top: 1px solid $graysmoke;
+    border-bottom: 1px solid $graysmoke;
+    margin-top: 38px;
+    overflow: hidden;
+}
+
+.article-share-box{
+        float: left;
+        height: 54px;
+        line-height: $lh-54-lg;;
+        border-left: 1px solid $graysmoke;
+        text-align: center;
+        &:first-child:nth-last-child(3), &:first-child:nth-last-child(3)~div {
+            width: 33%;
+            @include for-size(sm-dev){
+                width: 100%;
+                border-top: 1px solid $graysmoke;
+                border-left: none;
+            }
+            @include for-size(xs-dev){
+                width: 100%;
+                border-top: 1px solid $graysmoke;
+                border-left: none;
+            }
+        }
+        &:first-child {
+            border-left: none;
+            @include for-size(sm-dev){
+                border-top: none !important;
+            }
+            @include for-size(xs-dev){
+                border-top: none !important;
+            }
+        }
+
+        .social > button.btn-spin{
+            border-color: transparent;
+            color: $black;
+            &:hover{
+                border-color: $gold;
+                color: $gold;
+                background-color: transparent;
+            }
+        }
+}
+
+.share-author{
+    span{
+        color: $gray-light-8;
+        font-style: italic;
+        margin-right: 2px;
+    }
+}
+
+.meta-search{
+    width: 100%;
+    padding: 15px 0;
+    margin-bottom: 30px;;
+}
+
+.divider-title-list{
+    border-top: 2px solid;
+    display: block;
+    max-width: 40px;
+    margin: 0 0 0.5em;
+    color: $mild-black
+}
+

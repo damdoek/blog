@@ -1,0 +1,143 @@
+@import './variables/carousel';
+@import './variables/color';
+
+.section{// temporary
+    padding:0;
+    margin: 0;
+    margin-top:25.5px; 
+    width: $crs-width;
+}
+.carousel-container{
+    width: $crs-width;
+    height:$crs-h-lg;
+    position: relative;
+    @include for-size(md-dev){
+        height:$crs-h-md
+    }
+    @include for-size(sm-dev){
+        height:$crs-h-md
+    }
+    @include for-size(xs-dev){
+        height:calc(100vh - 60px)
+    }
+}
+.carousel{
+    width: $crs-width;
+    height:$crs-h-lg;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // transition: opacity .9s linear;
+    @include for-size(md-dev){
+        height:$crs-h-md
+    }
+    @include for-size(sm-dev){
+        height:$crs-h-md
+    }
+    @include for-size(xs-dev){
+        height:calc(100vh - 60px)
+    }
+}
+
+.fade-overlay-crs{
+    position: absolute;
+    top:0 ;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    display: table;;
+    transition: .3s;
+}
+
+.carousel-item{
+    max-width: 60%;
+    margin: 0 auto;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    transition: .3s;
+}
+
+.divider-crs{
+    border-top: 2px solid;
+    display: block;
+    max-width: 48px;
+    margin: 0 auto 26px;
+    color: #fff;
+    transition: .3s;
+}
+
+.carousel-nav-prev{
+    position: absolute;
+    display: table;
+    width: 10%;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.carousel-nav-next{
+    position: absolute;
+    display: table;
+    margin: 0 auto;
+    width: 10%;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.crs-nav{
+    color: #fff;
+    outline: 0;
+    height: 50px ;
+    width: 50px ;
+    font-size: $ft-sz-20-lg;
+    line-height: $lh-20-lg;;
+    text-align: center;
+    border-radius: 50%;
+    transition: .3s;
+    display: table-cell;
+    margin: auto;
+    @include for-size(md-dev){
+        height: 40px ;
+        width: 40px ;
+        font-size: $ft-sz-20-md;
+        line-height: $lh-20-md;
+        padding: 1px 6px 1px 5px;
+    }
+    @include for-size(sm-dev){
+        height: 30px ;
+        width: 30px ;
+        font-size: $ft-sz-20-sm;
+        line-height: $lh-20-sm;
+        padding: 2px 8px;
+    }
+    @include for-size(xs-dev){
+        height: 20px ;
+        width: 20px ;
+        font-size: $ft-sz-20-xs;
+        line-height: $lh-20-xs;
+        padding: 1px 4px;;
+    }
+}
+
+.crs-nav:hover{
+    color: $black;
+    transition: .3s;
+    background-color:$whitesmoke;
+}
+
+.hidden{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) ;
+
+}
+
+.visible{
+    opacity:1;
+    transition: opacity 1.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
