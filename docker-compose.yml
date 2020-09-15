@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  prometheus:
+    container_name: i-prometheus
+    restart: always
+    build:
+       context: .
+       network: host
+    ports:
+       - '3333:3333'
+    networks:
+       iabx:
+           aliases:
+               - prometheus
+networks:
+   iabx:
+       external:
+           name: iabx
