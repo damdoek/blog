@@ -2,21 +2,22 @@
     <p [innerHTML]="content[type]"></p>
 </div>
 
-<div class="article-elet" [ngClass]="type" *ngIf="type =='titleH2'">
+<!-- <div class="article-elet" [ngClass]="type" *ngIf="type =='titleH2'">
     <h2 [innerHTML]="content[type]"></h2>
 </div>
 
 <div class="article-elet" [ngClass]="type" *ngIf="type =='titleH4'">
     <h4 [innerHTML]="content[type]"></h4>
-</div>
+</div> -->
 
-<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="content[type]" *ngIf="type =='imgFull'">
+<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="endpointApi+'/assets/img/md_'+content[type]"
+    *ngIf="type =='imgFull'">
 </div>
 
 <ul class="article-elet" [ngClass]="type" *ngIf="type == 'imgFullList3Col'">
     <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
         <figure>
-            <img [lazyLoad]="img" alt="art-elt-img">
+            <img [lazyLoad]="endpointApi+'/assets/img/md_'+img" alt="art-elt-img">
             <div class="overlay-img-abs" *ngIf="option && option.overlay">
                 <div class="btn-over-img">
                     <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">
@@ -34,7 +35,7 @@
 <ul class="article-elet" [ngClass]="type" *ngIf="type =='imgFullList2Col'">
     <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
         <figure>
-            <img [lazyLoad]="img" alt="art-elt-img">
+            <img [lazyLoad]="endpointApi+'/assets/img/md_'+img" alt="art-elt-img">
             <div class="overlay-img-abs" *ngIf="option && option.overlay">
                 <div class="btn-over-img">
                     <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">
@@ -49,13 +50,14 @@
 
 </ul>
 
-<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="content[type]" *ngIf="type =='imgViewport'">
+<div class="article-elet cover-img" [ngClass]="type" [lazyLoad]="endpointApi+'/assets/img/md_'+content[type]"
+    *ngIf="type =='imgViewport'">
 </div>
 
 <div class="article-elet" [ngClass]="type" *ngIf="type =='imgViewportList'">
     <li class="img-list-container" *ngFor="let img of content[type]; let i = index">
         <figure>
-            <img [lazyLoad]="img" alt="art-elt-img">
+            <img [lazyLoad]="endpointApi+'/assets/img/lg_'+img" alt="art-elt-img">
             <div class="overlay-img-abs" *ngIf="option && option.overlay">
                 <div class="btn-over-img">
                     <button class="btn btn-spin btn-icon" (click)="zoomImg(i)">

@@ -7,10 +7,11 @@ import { otherSideAreaPanels, aboutSideAreaPanels } from "../data/sideareaDb";
 import gql from 'graphql-tag';
 import { Apollo, QueryRef } from 'apollo-angular';
 import { variable } from '@angular/compiler/src/output/output_ast';
+import { threadId } from 'worker_threads';
 
 
 export class WSUi {
-    navBarQuery = gql`query {
+  navBarQuery = gql`query {
         getNavBar
          {
           logo
@@ -29,12 +30,12 @@ export class WSUi {
           }
         }
       }`
-    sideAreaQuery = gql`query  getSideArea($page:String!){
+  sideAreaQuery = gql`query  getSideArea($page:String!){
         getSideArea(page:$page)
       }
       `
 
-    footerQuery = gql`query{
+  footerQuery = gql`query{
         getFooter {
           social {
             text
@@ -46,42 +47,42 @@ export class WSUi {
       }
       `
 
-    constructor(private apollo: Apollo) { }
-    getNavBar() {
-        return this.apollo.watchQuery({
-            query: this.navBarQuery
-        });
-    }
-    getFooter() {
-        return this.apollo.watchQuery({
-            query: this.footerQuery
-        });
-    }
+  constructor(private apollo: Apollo) { }
+  getNavBar() {
+    return this.apollo.watchQuery({
+      query: this.navBarQuery
+    });
+  }
+  getFooter() {
+    return this.apollo.watchQuery({
+      query: this.footerQuery
+    });
+  }
 
-    getSideArea(args) {
-        console.log(args)
-        return this.apollo.watchQuery({
-            query: this.sideAreaQuery,
-            variables: { page: args }
-        });
-    }
-    getAboutSideArea(): Promise<SidePanelArea> {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => { }, 10)
-            resolve(aboutSideAreaPanels)
-        })
-    }
+  getSideArea(args) {
+    console.log(args)
+    return this.apollo.watchQuery({
+      query: this.sideAreaQuery,
+      variables: { page: args }
+    });
+  }
+  getAboutSideArea(): Promise<SidePanelArea> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { }, 10)
+      resolve(aboutSideAreaPanels)
+    })
+  }
 
-    getCarousel(): Promise<_Carousel> {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => { }, 10)
-            resolve(carousel)
-        })
-    }
-    // getComment(): Promise<_Comment>{
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() => { }, 10)
-    //         resolve(articles[Math.round(Math.random() * 3)].)
-    //     })
-    // }
+  getCarousel(): Promise<_Carousel> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { }, 10)
+      resolve(carousel)
+    })
+  }
+  // getComment(): Promise<_Comment>{
+  //     return new Promise((resolve, reject) => {
+  //         setTimeout(() => { }, 10)
+  //         resolve(articles[Math.round(Math.random() * 3)].)
+  //     })
+  // }
 }

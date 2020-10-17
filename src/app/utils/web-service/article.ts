@@ -50,6 +50,7 @@ export class WSArticle {
                     overlay
                 }
             }
+            author
             createdAt
             updatedAt
         }    
@@ -80,6 +81,31 @@ export class WSArticle {
     getCommentsCountQuery = gql`query getComments($id: String!){
         getCommentsCount(id: $id)
     }`
+
+    getCategoriesQuery = gql`query {
+        getCategories{
+            name
+        }
+    }`
+
+    getAboutQuery = gql`query{
+        getAbout{
+          title
+          img
+          prev
+          content {
+            _id
+            type
+            titleH2
+            titleH4
+            text
+            imgViewport
+            imgFull
+            createdAt
+            updatedAt
+          }
+        }
+      }`
     constructor(private apollo: Apollo) { }
     getArticle(id) {
         return this.apollo.watchQuery({
@@ -87,12 +113,14 @@ export class WSArticle {
             variables: { id }
         });
     }
-    getArticleAbout(): Promise<_Article> {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => { }, 10)
-            resolve(articleAbout)
-        })
+
+    getAbout() {
+        return this.apollo.watchQuery({
+            query: this.getAboutQuery,
+            variables: null
+        });
     }
+
     getArticleList(query, pagination) {
         return this.apollo.watchQuery({
             query: this.articleListQuery,
@@ -111,4 +139,11 @@ export class WSArticle {
             variables: { id }
         });
     }
+    getCategories() {
+        return this.apollo.watchQuery({
+            query: this.getCategoriesQuery,
+            variables: {}
+        });
+    }
+
 }

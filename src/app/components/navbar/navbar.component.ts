@@ -32,7 +32,9 @@ export class NavbarComponent implements OnInit {
     this.navBar.goToSearch(this.router)
   }
 
-
+  goTo(arg) {
+    window.open(arg, '_blank')
+  }
 
   // async getSideBar() {
   //   this.sideBar = new SideBar(await this.fetchSideBar())

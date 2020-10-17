@@ -14,7 +14,7 @@
             <ul class="top-container">
                 <li class="top-wrap" *ngFor="let top of panel.item">
 
-                    <div class="top-img cover-img" [lazyLoad]="top.img">
+                    <div class="top-img cover-img" [lazyLoad]="endpointApi+'/assets/img/'+top.img">
                         <div class="overlay-img">
                             <div class="btn-over-img">
                                 <button class="btn btn-spin btn-social"><i class="material-icons">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="top-meta">
                         <span class="text-mini text-gold">{{top.category}}</span>
-                        <h2 class="text-mini"><a href="">{{top.title}}</a></h2>
+                        <h2 class="text-mini"><a [routerLink]="['/post', top._id]">{{top.title}}</a></h2>
                         <span class="text-muted">{{top.date | date}}</span>
                         <span class="divider-title"></span>
                     </div>
@@ -59,13 +59,13 @@
         </div>
     </div>
 
-    <div class="side-panel" *ngIf="panel.type == 'picture'">
+    <div class="side-panel" *ngIf="panel.type == 'picture' && panel.item.length>0">
         <h2 class="widget-header">{{panel.title}}</h2>
         <div class="side-panel-body" [ngClass]="panel.type">
             <ul class="picture-container">
                 <li class="picture-wrap" *ngFor="let insta of panel.item">
-                    <a href="" class="inst-photo">
-                        <div class="cover-img" [lazyLoad]="insta.link">
+                    <a href="{{insta.url}}" target="_blank" class="inst-photo">
+                        <div class="cover-img" [lazyLoad]="insta.src">
                             <div class="overlay-img-reverse"></div>
                         </div>
                     </a>
@@ -86,8 +86,8 @@
         <div class="side-panel-body" [ngClass]="panel.type">
             <ul class="category-container">
                 <li class="category-wrap" *ngFor="let cat of panel.item">
-                    <a href="" class="cat link">
-                        {{cat.name}} <span class="text-muted">({{cat.count}})</span>
+                    <a [routerLink]="['/search']" [queryParams]="{q: cat.name}" class="cat link">
+                        {{cat.name}}
                     </a>
                 </li>
 

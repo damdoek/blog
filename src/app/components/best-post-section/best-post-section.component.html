@@ -1,11 +1,11 @@
 <div class="article" *ngIf=" article else loading">
     <div class="article-header">
         <span class="text-mini text-gold pointer"> <a href="/#">{{article.category}}</a> </span>
-        <h2 class="article-title pointer" id="best_art_title"><a href='/#'>{{article.title}}</a></h2>
+        <h2 class="article-title pointer" id="best_art_title"><a>{{article.title}}</a></h2>
         <span class="divider-title"></span>
         <span *ngIf="mode != 'about'" class="text-muted">Posted on {{article.uptdatedAt | date}}</span>
     </div>
-    <div class="article-img" [defaultImage]="" [lazyLoad]="article.img">
+    <div class="article-img" [defaultImage]="" [lazyLoad]="endpointApi+'/assets/img/lg_'+article.img">
 
     </div>
     <div class="article-body">
@@ -40,18 +40,18 @@
             </div>
             <div class="article-share-box share-author">
                 <span>By </span>
-                <a href="/#" title="Posts by Author" rel="author">{{article.author?.name}}</a>
+                <a href="/#" title="Posts by Author" rel="author">{{article.author}}</a>
             </div>
 
         </div>
-        <div class="related" *ngIf="mode == 'full'">
+        <!-- <div class="related" *ngIf="mode == 'full'">
             <app-related-section [related]="relatedArticle"></app-related-section>
-        </div>
+        </div> -->
 
-        <div class="article-comment" *ngIf="mode == 'full'">
+        <!-- <div class="article-comment" *ngIf="mode == 'full'">
 
             <app-comment-section [articleId]="article._id"></app-comment-section>
-        </div>
+        </div> -->
     </div>
 </div>
 <ng-template #loading>

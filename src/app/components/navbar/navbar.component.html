@@ -34,8 +34,8 @@
 
                     <li class="nav-item">
                         <a class="social">
-                            <button *ngFor="let item of navBar.sidebar.social"
-                                class="btn btn-round btn-spin btn-social"><i [ngClass]="item.icon"></i></button>
+                            <button *ngFor="let item of navBar.sidebar.social" class="btn btn-round btn-spin btn-social"
+                                (click)="goTo(item.link)"><i [ngClass]="item.icon"></i></button>
                         </a>
                     </li>
                 </ul>

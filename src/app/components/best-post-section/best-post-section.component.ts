@@ -3,6 +3,8 @@ import { Article, _Article } from '../../utils/classe/article';
 import { WSArticle } from '../../utils/web-service/article';
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router';
+import { domain } from '../../config'
+import { Title, Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,21 +16,28 @@ export class BestPostSectionComponent implements OnInit {
   // article: ArticleBest
   article: Article
   // relatedArticle: Array<RelArticle> = relArticle
+  constructor(private apollo: Apollo, private titleService: Title, private metaService: Meta) {
 
-  constructor(private apollo: Apollo) { }
+  }
 
   private wsArticle: WSArticle = new WSArticle(this.apollo)
 
   @Input() mode: String
   @Input() articleId: String
+  endpointApi = `http://${domain}:5000`
   comments = []
   commentsCount: Number
   ngOnInit(): void {
-    this.fetchArticle(this.articleId || "5f4257fae3c4bf44ec3653e3").valueChanges.subscribe(result => {
-      this.article = result.data && result.data['getArticleById']
+    console.log(this.articleId)
+    this.fetchArticle(this.articleId).valueChanges.subscribe(result => {
+      this.article = result.data && result.data[this.mode == "about" ? 'getAbout' : 'getArticleById']
+      if (this.mode == 'full') {
+        this.titleService.setTitle(`Ocha: ${this.article.title} `);
+        this.metaService.updateTag({ name: 'description', content: `Ocha: ${this.article.prev}` })
+      }
     })
 
-    this.wsArticle.getCommentsCount(this.articleId || "5f4257fae3c4bf44ec3653e3").valueChanges.subscribe(result => {
+    this.wsArticle.getCommentsCount(this.articleId).valueChanges.subscribe(result => {
       this.commentsCount = result.data && result.data['getCommentsCount']
     })
   }
@@ -40,7 +49,7 @@ export class BestPostSectionComponent implements OnInit {
     try {
       let data
       if (this.mode == "about")
-        data = this.wsArticle.getArticleAbout()
+        data = this.wsArticle.getAbout()
       else
         data = this.wsArticle.getArticle(id)
       return data

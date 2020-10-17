@@ -1,7 +1,7 @@
 <div class="footer" *ngIf="footer else loading">
     <div class="footer-container">
         <div class="footer-social">
-            <a *ngFor="let item of footer.social" [routerLink]="[item.link]" target="_blank"><i [ngClass]="item.icon"
+            <a *ngFor="let item of footer.social" href="{{item.link}}" target="_blank"><i [ngClass]="item.icon"
                     aria-hidden="true"></i>
                 <span>{{item.text}}</span></a>
         </div>

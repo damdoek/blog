@@ -16,7 +16,8 @@ export class SideareaSectionComponent implements OnInit {
   private wsUI: WSUi = new WSUi(this.apollo)
 
   ngOnInit(): void {
-    this.wsUI.getSideArea(this.router.url.substr(1)).valueChanges.subscribe(result => {
+    // console.log()
+    this.wsUI.getSideArea(this.router.url.substr(1).split('?q=')[0]).valueChanges.subscribe(result => {
       console.log(JSON.parse(result.data && result.data['getSideArea']) || [])
       this.sidePanelArea = new SidePanelArea(JSON.parse(result.data && result.data['getSideArea']).panels || [], this.apollo)
     })

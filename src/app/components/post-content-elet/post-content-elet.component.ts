@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { domain } from '../../config'
 @Component({
   selector: 'app-post-content-elet',
   templateUrl: './post-content-elet.component.html',
@@ -9,7 +9,7 @@ export class PostContentEletComponent implements OnInit {
 
   constructor() { }
   @Input() content
-
+  endpointApi = `http://${domain}:5000`
   type;
   option
 

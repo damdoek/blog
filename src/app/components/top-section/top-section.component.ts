@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { _Carousel, Carousel } from 'src/app/utils/classe/ui';
 import { WSUi } from 'src/app/utils/web-service/ui';
 import { Apollo } from 'apollo-angular';
+import { domain } from '../../config'
 @Component({
   selector: 'app-top-section',
   templateUrl: './top-section.component.html',
@@ -19,7 +20,7 @@ export class TopSectionComponent implements OnInit {
   crsInt
 
   constructor(private router: Router, private apollo: Apollo) { }
-
+  endpointApi = `http://${domain}:5000`
 
   ngOnInit(): void {
     this.carousel = new Carousel(this.apollo)
@@ -30,7 +31,8 @@ export class TopSectionComponent implements OnInit {
     this.carousel.move(direction, this.crsInt)
   }
 
-  navigateTo(url) {
+  navigateTo(id) {
+    var url = `/post/${id}`
     this.router.navigateByUrl(url)
   }
 }

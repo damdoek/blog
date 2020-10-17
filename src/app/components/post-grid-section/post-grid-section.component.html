@@ -2,7 +2,8 @@
     <ul class="card-grid">
         <li class="card-container" *ngFor="let article of data">
             <div class="card">
-                <div class="card-img lazy-load" [defaultImage]="" [lazyLoad]="article.img">
+                <div class="card-img lazy-load" [defaultImage]=""
+                    [lazyLoad]="endpointApi+'/assets/img/md_'+article.img">
                     <div class="overlay-img">
                         <div class="btn-over-img">
                             <button class="btn btn-spin btn-social"><i class="material-icons">

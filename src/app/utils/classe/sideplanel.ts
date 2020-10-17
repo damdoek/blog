@@ -1,6 +1,7 @@
 import { _Article } from './article'
 import { IconMenuBtn } from './ui'
 import { WSArticle } from '../web-service/article'
+import { domain } from '../../config'
 
 
 export interface _Panel {
@@ -106,15 +107,25 @@ export class BannerPanel extends Panel implements _BannerPanel {
 
 export class CategoryPanel extends Panel implements _CategoryPanel {
     item: Array<Category>
-    constructor(title: String, item: Array<Category>) {
-        super('category', title, item)
+    constructor(title: String, apollo) {
+        super('category', title, [])
+        var wsArticle = new WSArticle(apollo)
+        wsArticle.getCategories().valueChanges.subscribe(result => {
+            this.item = (result.data && result.data['getCategories'])
+        })
+
     }
 }
 
 export class InstaPanel extends Panel implements _InstaPanel {
     item: Array<Insta>
-    constructor(title: String, item: Array<Insta>) {
-        super('picture', title, item)
+    constructor(title: String, api: String) {
+        super('picture', title, [])
+        fetch(`http://${domain}:5000/insta/${api}`).then(resp => {
+            resp.json().then(data => {
+                this.item = data
+            }).catch(err => { throw err })
+        }).catch(err => { throw err })
     }
 }
 
@@ -143,7 +154,7 @@ export class SidePanelArea implements _SidePanelArea {
                     break;
                 case 'banner-spot': this.items.push(new BannerPanel(item))
                     break;
-                case 'category': this.items.push(new CategoryPanel(item.title, item.item))
+                case 'category': this.items.push(new CategoryPanel(item.title, apollo))
                     break;
                 case 'picture': this.items.push(new InstaPanel(item.title, item.item))
                     break;

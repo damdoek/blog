@@ -2,7 +2,7 @@
     <div class="banner-box">
         <div class="banner-item cover-img" *ngFor="let item of adverts" [lazyLoad]="item.img">
 
-            <a [routerLink]="[item.link]">
+            <a href="{{item.link}}" target="_blank">
                 <div class="overlay-img-reverse"></div>
             </a>
 

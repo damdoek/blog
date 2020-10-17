@@ -1,6 +1,7 @@
 <div class="carousel-container" *ngIf="carousel.items else loading">
     <div class="carousel" *ngFor="let item of carousel.items , let i = index;"
-        [style.backgroundImage]="'url('+item.img+')'" [ngClass]="i == carousel.currentItemIdx?'visible':'hidden'">
+        [style.backgroundImage]="'url('+endpointApi+'/assets/img/lg_'+item.img+')'"
+        [ngClass]="i == carousel.currentItemIdx?'visible':'hidden'">
     </div>
     <div class=" fade-overlay-crs">
         <div class="carousel-item">
@@ -8,7 +9,7 @@
             <h2 class="header-crs"> <a href="">{{carousel.items[carousel.currentItemIdx].title}}</a> </h2>
             <span class="divider-crs"></span>
             <button class="btn btn-primar btn-ft-11"
-                (click)="navigateTo(carousel.items[carousel.currentItemIdx].link)">Read
+                (click)="navigateTo(carousel.items[carousel.currentItemIdx]._id)">Read
                 more</button>
 
         </div>

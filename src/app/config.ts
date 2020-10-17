@@ -1,0 +1,1 @@
+export const domain = "monde-chanoyu.com"
